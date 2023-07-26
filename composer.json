@@ -1,0 +1,15 @@
+{
+    "name": "code-lives/weixin",
+    "description": "微信小程序、公众号、H5、App（支付、手机号解密、获取Token、模版消息、支付异步通知、退款、订单查询）",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "code-lives",
+        "email": "948870149@qq.com"
+    }],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": { "Applet\\Assemble\\": "src" }
+    }
+}
