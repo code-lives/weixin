@@ -27,7 +27,6 @@ composer require code-lives/weixin
 # 预下单
 
 ```php
-<?php
 
 //引入命名空间
 use Applet\Assemble\Weixin;
@@ -83,20 +82,20 @@ $data= Weixin::init($config)->getOpenid($code);
 | openid      | string | 是   | 用户 openid |
 | unionid     | string | 是   | unionid     |
 
-### 微信解密手机号
+### 解密手机号
 
 ```php
 $data= Weixin::init($config)->decryptPhone($session_key, $iv, $encryptedData);
 echo $phone['phoneNumber'];
 ```
 
-### 微信订单查询
+### 订单查询
 
 ```php
 $data = Weixin::init($config)->findOrder("订单号");
 ```
 
-### 微信退款
+### 退款
 
 | 参数名字      | 类型   | 必须 | 说明         |
 | ------------- | ------ | ---- | ------------ |
@@ -116,7 +115,7 @@ $order = [
 $data= Weixin::init($config)->applyOrderRefund($order);
 ```
 
-### 微信小程序模版消息
+### 模版消息
 
 ```php
 $data = [
@@ -136,4 +135,17 @@ $data=[
     "errmsg" => "ok"
     "msgid" => 123456
 ]
+```
+
+## 支付回调
+
+```php
+$pay = Weixin::init($config);
+$status = $pay->notifyCheck();//验证
+if($status){
+    $order = $pay->getNotifyOrder();//订单数据
+    //$order['out_trade_no']//平台订单号
+    //$order['transaction_id']//微信订单号
+    echo 'success';exit;
+}
 ```
