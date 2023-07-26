@@ -15,7 +15,7 @@
 ## 安装
 
 ```php
-composer require code-lives/weixin
+composer require code-lives/weixin 1.0.0
 ```
 
 ### ⚠️ 注意
